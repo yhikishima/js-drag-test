@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>drag and drop Api test</title>
+  </head>
+  <body>
+  <!--ドラッグ可能な画像-->
+  <div style="width:250px; height:70px; background-color: #ff0000;" id="drag" draggable="true">
+
+  </div>
+  <!--ドロップ先の領域-->
+  <div id="drop" style="background-color:#ffc; width:450px; height:200px;"></div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      var drag = document.querySelector('#drag');
+      var drop = document.querySelector('#drop');
+
+      drag.addEventListener('dragstart', function(e) {
+        e.dataTransfer.setData('text', e.target.id);
+      }, true);
+
+      drop.addEventListener('dragover', function(e) {
+        e.preventDefault();
+      }, true);
+
+      drop.addEventListener('drop', function(e) {
+        var id = e.dataTransfer.getData('text');
+        e.currentTarget.appendChild(document.getElementById(id));
+        e.preventDefault();
+      }, true);
+    });
+
+  </script>
+  </body>
+</html>
