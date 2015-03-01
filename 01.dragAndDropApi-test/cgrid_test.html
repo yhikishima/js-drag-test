@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>[cg]drag and drop Api test</title>
+</head>
+<body>
+
+<!--ドラッグ可能な画像-->
+<div id="box" style="width:250px; height:70px; background-color: #ff0000;" id="drag" draggable="true">
+
+</div>
+<!--ドロップ先の領域-->
+<div id="dropzone" style="background-color:#ffc; width:450px; height:200px;"></div>
+
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script>
+(function() {
+  function onDragStart(e) {
+
+  }
+
+  $('#box').on('dragstart', onDragStart);
+
+
+
+})();
+
+
+</script>
+</body>
+</html>

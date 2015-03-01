@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title>kineticJS</title>
-  </head>
-  <body id="container">
+<head>
+  <meta charset="UTF-8">
+  <title>kineticJS</title>
+  <style>
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  </style>
+</head>
+<body id="container">
 
-  <script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.4.2.min.js"></script>
-  </body>
+<script src="http://d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v4.4.2.min.js"></script>
+<script>
+var stage = new Kinetic.Stage({
+  container: 'container',
+  width: window.innerWidth,
+  height: window.innerHeight
+});
+
+var layer = new Kinetic.Layer();
+var rect = new Kinetic.Rect({
+  x: 0,
+  y: 0,
+  width: stage.getWidth(),
+  height: stage.getHeight(),
+  fill: 'black'
+});
+
+var text = new Kinetic.Text({
+  x: stage.getWidth() / 2,
+  y: stage.getHeight() / 2,
+  text: 'Hello World!',
+  fontSize: 30,
+  fontFamily: 'Arial',
+  fill: 'lightgray'
+});
+
+text.setOffset({
+  x: text.getWidth() / 2,
+  y: text.getHeight() / 2
+});
+
+layer.add(rect);
+layer.add(text);
+stage.add(layer);
+
+</script>
+</body>
 </html>
